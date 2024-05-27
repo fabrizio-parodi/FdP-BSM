@@ -1,0 +1,119 @@
+\ProvidesPackage{beamerthemeAndre}[2003/11/07 ver 0.93]
+\NeedsTeXFormat{LaTeX2e}[1995/12/01]
+
+% Copyright 2003 by Till Tantau <tantau@cs.tu-berlin.de>.
+%
+% This program can be redistributed and/or modified under the terms
+% of the LaTeX Project Public License Distributed from CTAN
+% archives in directory macros/latex/base/lppl.txt.
+
+
+\mode<presentation>
+
+
+                                % Standard templates
+\beamertemplatelargetitlepage
+\beamertemplatelargepartpage
+\beamertemplatelargeframetitle
+\beamertemplatelargeblocks
+\beamertemplateplaintoc
+\beamertemplateballitem
+\beamertemplatesolidbuttons
+
+\usesectionheadtemplate
+  {\hfill\color{white}\tiny\textbf{\insertsectionhead}}
+  {\hfill\color{white!50!black}\tiny\textbf{\insertsectionhead}}
+
+\usesubsectionheadtemplate
+  {\color{white}\tiny\textbf{\insertsubsectionhead}}
+  {\color{white!50!beamerstructure}\tiny\textbf{\insertsubsectionhead}}
+
+                                % Entries in table of contents
+%\beamertemplatenumberedballsectiontoc
+
+\pgfdeclareverticalshading{topshade}{\paperwidth}{%
+  color(0pt)=(white);
+  color(4pt)=(black!50!white)}
+
+\pgfdeclarehorizontalshading{frametitleshade}{\paperheight}{%
+  color(0pt)=(structure);
+  color(\paperwidth)=(black)}
+
+\newdimen\tempdimen
+
+                                % Sections in headline
+\usesectionheadtemplate
+{\color{structure}\tiny\textrm{\textsc{\insertsectionhead}}}
+{\color{white}\tiny\textrm{\textsc{\insertsectionhead}}}
+
+                                % Mini slides in headline
+\beamertemplatecircleminiframe
+
+
+\RequirePackage{pgfshade}
+
+\pgfdeclareverticalshading{headfade}{\paperwidth}
+{color(0cm)=(white);
+  color(1.25cm)=(beamerstructure!50!white)}
+
+\AtBeginDocument{% redo at begin of document to catch changed background color
+\pgfdeclareverticalshading{headfade}{\paperwidth}
+{color(0cm)=(white);
+  color(1.25cm)=(beamerstructure!50!white)}}
+
+                                % Head
+\useheadtemplate{%
+  \vbox{%
+    \beamerline{\pgfuseshading{headfade}}%
+    \vskip-1.25cm%
+    \vskip3pt
+    \beamerline{\insertnavigation{\paperwidth}}%
+  }}
+
+                                % Footline
+\usefoottemplate{%
+  \vbox{%
+    \setbox\beamer@tempbox=\hbox{
+      %\tiny\insertshortauthor:
+      \insertshorttitle\hskip1.5cm\insertshortinstitute}%
+    \ifdim\wd\beamer@tempbox>\paperwidth%
+    \insertvrule{4pt}{structure!50!white}%
+    \vskip1.5pt
+%    \tinyline{\color{structure}\insertshortauthor:\hfill\insertshortinstitute}%
+%    \tinyline{\color{structure}\insertshorttitle\hfill\lower1pt\hbox{\insertnavigationsymbols}}%
+    \tinyline{\color{structure}
+%      \insertshortauthor:\hfill
+      \lower1pt\hbox{\insertnavigationsymbols}}%
+    \tinyline{\color{structure}\insertshorttitle}%
+    \else%
+%    \setbox\beamer@tempbox=\hbox{\beamerline{\hbox to\paperwidth{\hfill\lower1pt\hbox{\insertnavigationsymbols}}}}%
+%    \ht\beamer@tempbox=0pt%
+%    \box\beamer@tempbox%
+    \insertvrule{4pt}{structure!50!white}%
+    \vskip1.5pt
+    \tinyline{\color{structure}
+%      \insertshortauthor: 
+      \insertshorttitle\hfill\insertshortinstitute}%
+    \fi}%
+  }
+
+\def\logo#1{%
+  \def\insertlogo{#1}%
+  \usefoottemplate{%
+    \vbox{%
+      \insertvrule{4pt}{structure!50!white}%
+      \vskip1.5pt%
+      \setbox\beamer@logobox=\hbox{\lower1pt\hbox{\insertlogo}}%
+%      \tinyline{\color{structure}\insertshortauthor:\hfill}%
+      \tinyline{\color{structure}\insertshorttitle\hfill\lower1pt\hbox{\insertnavigationsymbols}\hskip0.1cm\hbox{\dp\beamer@logobox=0pt\ht\beamer@logobox=0pt\box\beamer@logobox}
+        }%
+      }%
+    }%
+  }
+
+
+
+\userightsidebartemplate{0cm}{}
+
+\mode
+<all>

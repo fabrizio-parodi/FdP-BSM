@@ -1,0 +1,95 @@
+\documentclass[xcolor=dvipsnames,aspectratio=169,pt11]{beamer}
+
+%\usetheme{CambridgeUS}
+
+%\usetheme{Singapore}
+%\usetheme {Boadilla}
+ 
+%\usetheme {progressbar}
+
+\usetheme {pallini}
+%\usetheme[height=1cm]{Rochester}
+%\usetheme [compress]{Ilmenau}
+%\usetheme {Madrid}
+\usepackage[english, italian] {babel}
+\usepackage{animate}
+\usepackage{wasysym}
+\usepackage{pifont}
+\usepackage{xcolor}
+%\usepackage{bbding}
+\usepackage{xparse}
+\usepackage{amsmath}
+\usepackage{physics}
+
+%\usepackage{multirow}
+\setbeamercovered {transparent}
+\usepackage{animate}
+%\usethikzlibrary{arrows}
+%\newcommand{\abs}[1]{\left|\,#1\,\right|}
+\newcommand{\as}{\alpha_s} \newcommand{\ashat}{\hat\alpha_s}
+
+\newcommand{\unitm}[1]{\,{\rm{#1}}}
+\newcommand{\br}{{\cal BR}}
+\newcommand{\btoppk}{B^{\pm} \to p \bar p K^{\pm}}
+\newcommand{\bppk}{B \to p \bar p K}
+\newcommand{\mpp}{M_{p \bar p} < 2.85}
+\newcommand{\btoetack}{B^{\pm} \to \eta_{c} K^{\pm}}
+\newcommand{\btojpsik}{B^{\pm} \to J/\psi K^{\pm}}
+\newcommand{\etacpp}{\eta_{c} \to p \bar p}
+\newcommand{\jpsipp}{J/\psi \to p \bar p}
+\newcommand{\jpsi}{J/\psi }
+\newcommand{\etac}{\eta_{c} }
+\usefonttheme[onlymath]{serif}  % formule in times
+\usecolortheme{progressbar}
+%\useinnertheme{rounded}
+%\useoutertheme[]{default}
+\usecolortheme[RGB={171,130,255}]{structure}
+\usefonttheme{structurebold}
+%\title {}
+\title{Beyond Standard Model}
+%\subtitle {Preliminary Study}
+\author[R. Cardinale, F. Parodi]{Roberta Cardinale, Fabrizio Parodi}
+\institute{AA 2023-2024}
+%\institute{}
+%\phantom{bu}
+%Referee: M. Karbach, M. Pappagallo}
+%\author{Referee: M. Karbach, M. Pappagallo}% Universit\`a degli studi di Genova $\&$ INFN} 
+%\date{16th August 2011}
+\date{}
+%\footline[page number]
+
+\begin{document}
+
+
+\definecolor{pink}{RGB}{170,170,255}
+\definecolor{violet}{RGB}{171,130,155}
+\setbeamercolor{postit}{fg=black,bg=pink!40!white}
+\setbeamercolor{postut}{fg=black,bg=pink!20!white}
+
+
+\frame{ \vskip-0.45cm
+  \begin{figure}[htbp]
+    \begin{columns}[c]
+      \begin{column}{0.15\textwidth} \centering
+        %\includegraphics [scale = 0.2] {logo_unige.jpg}
+        %\includegraphics [scale = 0.03] {INFN_logo.png}
+      \end{column}
+      \hspace{0.4\textwidth}
+      \begin{column}{0.15\textwidth}
+        \centering
+        %\includegraphics[scale=0.3] {lhcb.png}
+      \end{column}
+    \end{columns}
+  \end{figure}
+  \titlepage
+}
+
+
+\part{Introduction}
+\setbeamertemplate{background canvas} {
+}
+
+\input PartI.tex
+\input PartII.tex
+
+\end{document}
